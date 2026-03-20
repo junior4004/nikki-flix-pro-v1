@@ -1,52 +1,42 @@
-This is it. Once you click that **Pencil**, we are in the "Live Editor." This is where we turn this from a generic template into **NIKKIFLIX**.
-
-### **The "Zero-Error" Action:**
-
-1.  **Click that Pencil.**
-2.  **Delete everything** currently in that text box. (On a Chromebook, you can press **Ctrl + A** to highlight it all, then hit **Backspace**).
-3.  **Copy and Paste** this exact block of code below into that empty box:
-
-```tsx
 import React from 'react';
 
-export default function NikkiflixDashboard() {
+export default function NikkiflixFullSite() {
+  const games = [
+    { id: 1, name: 'Sugar Rush', img: '🍭' },
+    { id: 2, name: 'Gates of Nikki', img: '⚡' },
+    { id: 3, name: 'Wolf Gold', img: '🐺' },
+    { id: 4, name: 'Big Bass', img: '🐟' },
+  ];
+
   return (
-    <div style={{ backgroundColor: '#000', color: '#fff', minHeight: '100vh', fontFamily: 'sans-serif' }}>
-      {/* Header */}
-      <nav style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '20px', borderBottom: '2px solid #333' }}>
-        <h1 style={{ color: '#E50914', fontSize: '2rem', fontWeight: 'bold', margin: 0 }}>NIKKIFLIX</h1>
-        
-        <div style={{ display: 'flex', gap: '20px' }}>
-          <div style={{ textAlign: 'right' }}>
-            <span style={{ color: '#FFD700', fontWeight: 'bold', display: 'block' }}>GOLD COINS</span>
-            <span style={{ fontSize: '1.2rem' }}>1,000,000</span>
+    <div style={{ backgroundColor: '#0b0b0b', color: '#fff', minHeight: '100vh', fontFamily: 'Arial, sans-serif' }}>
+      <nav style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '15px 30px', backgroundColor: '#000', borderBottom: '1px solid #222' }}>
+        <h1 style={{ color: '#E50914', fontSize: '1.8rem', fontWeight: '900' }}>NIKKIFLIX</h1>
+        <div style={{ display: 'flex', gap: '15px' }}>
+          <div style={{ background: '#1a1a1a', padding: '5px 15px', borderRadius: '5px', border: '1px solid #FFD700' }}>
+            <div style={{ fontSize: '10px', color: '#FFD700' }}>GOLD COINS</div>
+            <div style={{ fontWeight: 'bold' }}>1,000,000.00</div>
           </div>
-          <div style={{ textAlign: 'right' }}>
-            <span style={{ color: '#00FA9A', fontWeight: 'bold', display: 'block' }}>SWEEPS COINS</span>
-            <span style={{ fontSize: '1.2rem' }}>25.00</span>
+          <div style={{ background: '#1a1a1a', padding: '5px 15px', borderRadius: '5px', border: '1px solid #00FA9A' }}>
+            <div style={{ fontSize: '10px', color: '#00FA9A' }}>SWEEPS</div>
+            <div style={{ fontWeight: 'bold' }}>25.00</div>
           </div>
         </div>
       </nav>
 
-      {/* Main Content Placeholder */}
-      <main style={{ padding: '50px', textAlign: 'center' }}>
-        <h2 style={{ fontSize: '1.5rem', color: '#888' }}>Welcome back, Jerry.</h2>
-        <p>Your premium casino dashboard is now active.</p>
-      </main>
+      <div style={{ padding: '40px' }}>
+        <h2 style={{ marginBottom: '20px' }}>Recommended For Jerry</h2>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '20px' }}>
+          {games.map(game => (
+            <div key={game.id} style={{ backgroundColor: '#1a1a1a', height: '280px', borderRadius: '8px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', border: '1px solid #333' }}>
+              <div style={{ fontSize: '4rem' }}>{game.img}</div>
+              <div style={{ marginTop: '15px', fontWeight: 'bold' }}>{game.name}</div>
+              <button style={{ marginTop: '20px', backgroundColor: '#E50914', color: 'white', border: 'none', padding: '8px 20px', borderRadius: '4px', fontWeight: 'bold', cursor: 'pointer' }}>PLAY NOW</button>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
-```
 
----
-
-### **How to Save (Crucial Step):**
-
-1.  After you paste that in, look at the **Top Right** of the screen for a green button that says **"Commit changes..."**
-2.  **Click "Commit changes..."**
-3.  A little box will pop up—just click the green **"Commit changes"** button again.
-
-### **What happens next:**
-As soon as you hit that second green button, **Vercel will see it.** Within about 60 seconds, your website at `nikki-flix-pro-v1.vercel.app` will stop saying "Next.js" and will start showing your **Red NIKKIFLIX logo** and your **Gold/Sweeps wallets**.
-
-**Did you get the code pasted in and hit "Commit changes"?** Let me know when you've done it, and then we will go look at the live site together!
