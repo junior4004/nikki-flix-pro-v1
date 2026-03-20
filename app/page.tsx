@@ -1,65 +1,52 @@
-import Image from "next/image";
+This is it. Once you click that **Pencil**, we are in the "Live Editor." This is where we turn this from a generic template into **NIKKIFLIX**.
 
-export default function Home() {
+### **The "Zero-Error" Action:**
+
+1.  **Click that Pencil.**
+2.  **Delete everything** currently in that text box. (On a Chromebook, you can press **Ctrl + A** to highlight it all, then hit **Backspace**).
+3.  **Copy and Paste** this exact block of code below into that empty box:
+
+```tsx
+import React from 'react';
+
+export default function NikkiflixDashboard() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div style={{ backgroundColor: '#000', color: '#fff', minHeight: '100vh', fontFamily: 'sans-serif' }}>
+      {/* Header */}
+      <nav style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '20px', borderBottom: '2px solid #333' }}>
+        <h1 style={{ color: '#E50914', fontSize: '2rem', fontWeight: 'bold', margin: 0 }}>NIKKIFLIX</h1>
+        
+        <div style={{ display: 'flex', gap: '20px' }}>
+          <div style={{ textAlign: 'right' }}>
+            <span style={{ color: '#FFD700', fontWeight: 'bold', display: 'block' }}>GOLD COINS</span>
+            <span style={{ fontSize: '1.2rem' }}>1,000,000</span>
+          </div>
+          <div style={{ textAlign: 'right' }}>
+            <span style={{ color: '#00FA9A', fontWeight: 'bold', display: 'block' }}>SWEEPS COINS</span>
+            <span style={{ fontSize: '1.2rem' }}>25.00</span>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+      </nav>
+
+      {/* Main Content Placeholder */}
+      <main style={{ padding: '50px', textAlign: 'center' }}>
+        <h2 style={{ fontSize: '1.5rem', color: '#888' }}>Welcome back, Jerry.</h2>
+        <p>Your premium casino dashboard is now active.</p>
       </main>
     </div>
   );
 }
+```
+
+---
+
+### **How to Save (Crucial Step):**
+
+1.  After you paste that in, look at the **Top Right** of the screen for a green button that says **"Commit changes..."**
+2.  **Click "Commit changes..."**
+3.  A little box will pop up—just click the green **"Commit changes"** button again.
+
+### **What happens next:**
+As soon as you hit that second green button, **Vercel will see it.** Within about 60 seconds, your website at `nikki-flix-pro-v1.vercel.app` will stop saying "Next.js" and will start showing your **Red NIKKIFLIX logo** and your **Gold/Sweeps wallets**.
+
+**Did you get the code pasted in and hit "Commit changes"?** Let me know when you've done it, and then we will go look at the live site together!
