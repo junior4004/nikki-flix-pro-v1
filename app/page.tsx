@@ -1,56 +1,65 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
-export default function NikkiflixProDashboard() {
-  const games = [
-    { id: 1, name: 'Sugar Rush 1000', color: '#ff69b4', icon: '🍭' },
-    { id: 2, name: 'Gates of Nikki', color: '#4da6ff', icon: '⚡' },
-    { id: 3, name: 'Wolf Gold High Limit', color: '#ff9900', icon: '🐺' },
-    { id: 4, name: 'Big Bass Splash', color: '#00cc66', icon: '🐟' },
-  ];
+export default function NikkiflixWithNicole() {
+  const [showHost, setShowHost] = useState(true);
+
+  // THIS IS THE AI VOICE TRIGGER
+  const speakWelcome = () => {
+    const msg = new SpeechSynthesisUtterance();
+    msg.text = "Hi, I'm Nicole, your Nikki Flix host. Welcome! Here is the deal: Watch one ad to enter your game, and that is it. No interruptions while you play. Your 1 dollar Sweeps is a gift, but remember there is a 20x playthrough before cashing out. We keep it real here. Ready to spin?";
+    msg.rate = 0.9; // Professional, steady pace
+    msg.pitch = 1.1; // Friendly female tone
+    window.speechSynthesis.speak(msg);
+  };
 
   return (
     <div style={{ backgroundColor: '#050505', color: '#fff', minHeight: '100vh', fontFamily: 'Inter, sans-serif' }}>
-      {/* AUTHENTIC PRO HEADER */}
-      <nav style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '12px 24px', backgroundColor: '#000', borderBottom: '1px solid #1a1a1a', position: 'sticky', top: 0, zIndex: 100 }}>
-        <h1 style={{ color: '#E50914', fontSize: '1.6rem', fontWeight: '900', letterSpacing: '-1.5px', margin: 0 }}>NIKKIFLIX</h1>
-        
-        <div style={{ display: 'flex', gap: '12px' }}>
-          <div style={{ background: '#111', padding: '6px 16px', borderRadius: '4px', border: '1px solid #333' }}>
-            <div style={{ fontSize: '9px', color: '#888', fontWeight: 'bold' }}>GOLD COINS</div>
-            <div style={{ fontWeight: '600', color: '#FFD700' }}>50,000.00</div>
-          </div>
-          <div style={{ background: '#111', padding: '6px 16px', borderRadius: '4px', border: '1px solid #333' }}>
-            <div style={{ fontSize: '9px', color: '#888', fontWeight: 'bold' }}>SWEEPS</div>
-            <div style={{ fontWeight: '600', color: '#00FA9A' }}>5.00</div>
-          </div>
-          <div style={{ width: '35px', height: '35px', borderRadius: '50%', backgroundColor: '#E50914', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold' }}>J</div>
-        </div>
-      </nav>
-
-      {/* FEATURED SECTION */}
-      <div style={{ padding: '30px' }}>
-        <div style={{ width: '100%', height: '300px', borderRadius: '12px', background: 'linear-gradient(to right, #000, transparent), url("https://images.unsplash.com/photo-1596778402284-8398c7b09521?auto=format&fit=crop&w=1200&q=80")', backgroundSize: 'cover', display: 'flex', alignItems: 'center', padding: '40px', marginBottom: '40px', border: '1px solid #222' }}>
-           <div>
-             <h2 style={{ fontSize: '2.5rem', marginBottom: '10px' }}>NIKKIFLIX ORIGINALS</h2>
-             <p style={{ color: '#ccc', maxWidth: '400px' }}>High volatility. Instant payouts. No generic limits.</p>
-             <button style={{ backgroundColor: '#fff', color: '#000', border: 'none', padding: '12px 30px', borderRadius: '4px', fontWeight: 'bold', fontSize: '1rem', cursor: 'pointer' }}>Enter Gaming Room</button>
-           </div>
-        </div>
-
-        {/* PRO GAME ROW */}
-        <h3 style={{ fontSize: '1.2rem', marginBottom: '20px', color: '#eee' }}>Top Picks For You</h3>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '15px' }}>
-          {games.map(game => (
-            <div key={game.id} style={{ position: 'relative', overflow: 'hidden', borderRadius: '6px', cursor: 'pointer', transition: 'transform 0.2s' }}>
-              <div style={{ width: '100%', height: '320px', backgroundColor: '#151515', border: '1px solid #222', borderRadius: '6px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                <span style={{ fontSize: '3rem' }}>{game.icon}</span>
-                <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '15px', background: 'linear-gradient(transparent, rgba(0,0,0,0.9))' }}>
-                   <div style={{ fontWeight: 'bold', fontSize: '1rem' }}>{game.name}</div>
-                   <div style={{ color: '#E50914', fontSize: '0.8rem', fontWeight: 'bold', marginTop: '5px' }}>LIVE NOW</div>
-                </div>
-              </div>
+      
+      {/* NICOLE VIRTUAL HOST */}
+      {showHost && (
+        <div style={{ position: 'fixed', inset: 0, backgroundColor: 'rgba(0,0,0,0.9)', zIndex: 1000, display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '20px' }}>
+          <div style={{ backgroundColor: '#111', color: '#fff', padding: '30px', borderRadius: '20px', border: '3px solid #E50914', maxWidth: '500px', textAlign: 'center' }}>
+            <div style={{ fontSize: '100px', marginBottom: '10px' }}>👩‍💼</div>
+            <h2 style={{ color: '#E50914', margin: '0 0 10px 0' }}>MEET NICOLE</h2>
+            <p style={{ fontSize: '16px', lineHeight: '1.5', color: '#ccc' }}>
+              "Welcome! I'm your host. Watch <b>one ad</b> for unlimited play. 
+              Your $1 SC is ready, but a <b>20x playthrough</b> applies to all freebies. Let's keep it fair and fun!"
+            </p>
+            
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginTop: '20px' }}>
+              <button 
+                onClick={() => { speakWelcome(); }}
+                style={{ backgroundColor: '#444', color: '#fff', border: 'none', padding: '10px', borderRadius: '5px', fontWeight: 'bold', cursor: 'pointer' }}
+              >
+                🔊 HEAR NICOLE EXPLAIN RULES
+              </button>
+              
+              <button 
+                onClick={() => setShowHost(false)}
+                style={{ backgroundColor: '#E50914', color: '#fff', border: 'none', padding: '15px', borderRadius: '5px', fontWeight: 'bold', fontSize: '1.1rem', cursor: 'pointer' }}
+              >
+                START PLAYING (Watch Ad)
+              </button>
             </div>
-          ))}
+          </div>
+        </div>
+      )}
+
+      {/* HEADER & LOBBY (Blurred until Nicole is dismissed) */}
+      <div style={{ filter: showHost ? 'blur(5px)' : 'none', transition: '0.3s' }}>
+        <nav style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '15px 25px', backgroundColor: '#000', borderBottom: '1px solid #222' }}>
+          <h1 style={{ color: '#E50914', margin: 0 }}>NIKKIFLIX</h1>
+          <div style={{ display: 'flex', gap: '10px' }}>
+             <span style={{ border: '1px solid #FFD700', padding: '4px 10px', borderRadius: '4px', color: '#FFD700' }}>GC: 50,000</span>
+             <span style={{ border: '1px solid #00FA9A', padding: '4px 10px', borderRadius: '4px', color: '#00FA9A' }}>SC: 1.00 🔒</span>
+          </div>
+        </nav>
+
+        <div style={{ padding: '40px', display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '20px' }}>
+           {/* Placeholder Game Cards */}
+           {[1,2,3,4].map(i => (
+             <div key={i} style={{ height: '250px', backgroundColor: '#111', borderRadius: '10px', border: '1px solid #222' }}></div>
+           ))}
         </div>
       </div>
     </div>
